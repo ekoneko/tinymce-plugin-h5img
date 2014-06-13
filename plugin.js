@@ -5,7 +5,6 @@
         var init, drag, paste, body, render;
         drag = {
             enter: function () {
-                console.log('enter');
                 body.setAttribute('style', 'background:#f8ffe5;');
             },
             over: function (e) {
@@ -25,8 +24,9 @@
                 render(file);
             },
             leave: function (e) {
-                console.log('leave', e);
-                body.setAttribute('style', '');
+                if (e.x < 30 || e.x > body.clientWidth - 30 || e.y < 30 || e.y > body.clientHeight - 30) {
+                    body.setAttribute('style', '');
+                }
             }
         };
         paste = function (e) {
