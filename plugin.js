@@ -12,16 +12,18 @@
                 e.preventDefault();
             },
             drop: function (e) {
-                var file;
+                var file, src;
                 e.stopPropagation();
                 e.preventDefault();
                 body.style.background = 'none';
 
                 file = e.dataTransfer.files[0];
                 if (!file || !file.type || !/image\/((jpeg)|(png)|(gif)|(jpg))/.test(file.type)) {
-                    return;
+                    src = $(e.dataTransfer.getData('text/html')).filter('img').attr('src');
+                    editor.insertContent('<img src="' + src + '" />');
+                } else {
+                    render(file);
                 }
-                render(file);
             },
             leave: function (e) {
                 if (e.x < 30 || e.x > body.clientWidth - 30 || e.y < 30 || e.y > body.clientHeight - 30) {
