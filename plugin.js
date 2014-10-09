@@ -5,7 +5,7 @@
         var init, drag, paste, body, render;
         drag = {
             enter: function () {
-                body.setAttribute('style', 'background:#f8ffe5;');
+                body.style.background = '#f8ffe5';
             },
             over: function (e) {
                 e.stopPropagation();
@@ -15,17 +15,17 @@
                 var file;
                 e.stopPropagation();
                 e.preventDefault();
-                body.setAttribute('style', '');
+                body.style.background = 'none';
 
                 file = e.dataTransfer.files[0];
-                if (!file.type || !/image\/((jpeg)|(png)|(gif)|(jpg))/.test(file.type)) {
+                if (!file || !file.type || !/image\/((jpeg)|(png)|(gif)|(jpg))/.test(file.type)) {
                     return;
                 }
                 render(file);
             },
             leave: function (e) {
                 if (e.x < 30 || e.x > body.clientWidth - 30 || e.y < 30 || e.y > body.clientHeight - 30) {
-                    body.setAttribute('style', '');
+                    body.style.background = 'none';
                 }
             }
         };
