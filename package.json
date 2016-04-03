@@ -1,0 +1,9 @@
+{
+  "name": "tinymce-html5image",
+  "version": "1.0.0",
+  "description": "Drag or paste image in tinymce.",
+  "license": "MIT",
+  "keywords": [
+    "tinymce"
+  ]
+ }
