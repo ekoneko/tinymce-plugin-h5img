@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "strictNullChecks": false,
+        "allowSyntheticDefaultImports": true,
+        "experimentalDecorators": true,
+        "declaration": true,
+        "lib": ["es2015", "dom", "dom.iterable", "scripthost"],
+        "outDir": "lib"
+    },
+    "include": [
+        "src"
+    ]
+}

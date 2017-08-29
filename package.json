@@ -1,9 +1,27 @@
 {
-  "name": "tinymce-html5image",
+  "name": "tinymce-plugin-h5img",
   "version": "1.0.0",
-  "description": "Drag or paste image in tinymce.",
-  "license": "MIT",
+  "description": "A tinyMCE plugin for upload image on HTML5 ways (d&d, input[type=file]) Edit",
+  "main": "index.js",
+  "scripts": {
+    "sample": "cd test && webpack-dev-server",
+    "prepublish": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ekoneko/tinymce-plugin-h5img.git"
+  },
   "keywords": [
     "tinymce"
-  ]
- }
+  ],
+  "author": "arzusyume@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ekoneko/tinymce-plugin-h5img/issues"
+  },
+  "homepage": "https://github.com/ekoneko/tinymce-plugin-h5img",
+  "peerDependencies": {
+    "tinymce": "^4.6.5"
+  }
+}
