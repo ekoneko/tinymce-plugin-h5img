@@ -3,9 +3,6 @@ require('tinymce/plugins/image');
 require('tinymce/themes/modern');
 require('tinymce/skins/lightgray/skin.min.css');
 
-const chai = require('chai');
-const expect = chai.expect;
-
 require('../src')
 
 interface Window {
@@ -15,7 +12,6 @@ interface Window {
     tinyMCE: any;
 }
 
-const mocha = window.mocha;
 const tinyMCE = window.tinyMCE;
 
 window.tinyMCE.init({
@@ -25,11 +21,9 @@ window.tinyMCE.init({
     skin: false,
     menubar: false,
     statusbar: false,
-    plugins: ['image', 'h5img'],
-    toolbar: 'undo redo | image',
+    plugins: ['h5img'],
+    toolbar: 'undo redo | h5img',
     init_instance_callback: ed => {
 
     },
 })
-
-mocha.setup('bdd');
