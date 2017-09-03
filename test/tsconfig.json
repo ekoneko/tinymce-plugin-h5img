@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "strictNullChecks": false,
+        "allowSyntheticDefaultImports": true,
+        "experimentalDecorators": true,
+        "lib": ["es2015", "dom", "dom.iterable", "scripthost"],
+        "outFile": "bundle.js"
+    }
+}
