@@ -15,6 +15,8 @@ export interface IUploadConfig {
     accept?: string[];
     // Toolbar icon, default is 'image'
     icon?: string;
+    // Background color when drag img into editor
+    dragColor?: string;
 }
 
 // https://stackoverflow.com/questions/35789498/new-typescript-1-8-4-build-error-build-property-result-does-not-exist-on-t

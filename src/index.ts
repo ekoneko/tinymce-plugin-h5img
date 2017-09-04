@@ -48,7 +48,7 @@ async function displayImg(editor, result: types.ISendResult): Promise<any> {
 
 window.tinyMCE.PluginManager.add('h5img', function(editor) {
     const uploadConfig: types.IUploadConfig = editor.settings.uploadConfig || {};
-    const { accept = DEFAULT_ACCEPT } = uploadConfig;
+    const { accept = DEFAULT_ACCEPT, dragColor = '#f8ffe5' } = uploadConfig;
 
     const input = document.createElement('input');
     input.setAttribute('type', 'file');
@@ -64,7 +64,7 @@ window.tinyMCE.PluginManager.add('h5img', function(editor) {
     });
 
     const dragEnter = () => {
-        editor.getBody().style.background = '#f8ffe5';
+        editor.getBody().style.background = dragColor;
     }
 
     const dragOver = (e) => {
