@@ -63,9 +63,42 @@ window.tinyMCE.PluginManager.add('h5img', function(editor) {
         handleInputChange(editor, input, uploadConfig);
     });
 
-    /**
-     * 添加插入图片的按钮
-     */
+    const dragEnter = () => {
+        editor.getBody().style.background = '#f8ffe5';
+    }
+
+    const dragOver = (e) => {
+        e.stopPropagation();
+        e.preventDefault();
+    }
+
+    const dragLeave = (e) => {
+        const body = editor.getBody();
+        if (e.x < 30 || e.x > body.clientWidth - 30 || e.y < 30 || e.y > body.clientHeight - 30) {
+            body.style.background = 'none';
+        }
+    }
+
+    const drop = async (e) => {
+        e.stopPropagation();
+        e.preventDefault();
+        editor.getBody().style.background = 'none';
+
+        const file = e.dataTransfer.files[0];
+        if (utils.isAcceptedFile(file)) {
+            const result = await utils.sendFile(file, uploadConfig.uploadFile);
+            return await displayImg(editor, result)
+        }
+    }
+
+    editor.on('init', () => {
+        const body = editor.getBody();
+        body.addEventListener('dragenter', dragEnter, false);
+        body.addEventListener('dragover', dragOver, false);
+        body.addEventListener('drop', drop, false);
+        body.addEventListener('dragleave', dragLeave, false);
+    })
+
     editor.addButton('h5img', {
         icon: uploadConfig.icon || 'image',
         tooltip: 'Upload image',
