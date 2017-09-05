@@ -2,13 +2,16 @@
   "name": "tinymce-plugin-h5img",
   "version": "1.0.0",
   "description": "A tinyMCE plugin for upload image on HTML5 ways (d&d, input[type=file]) Edit",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "sample": "cd test && webpack-dev-server",
     "prepublish": "tsc && webpack",
     "clean": "rm -rf lib dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "files": [
+    "lib"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ekoneko/tinymce-plugin-h5img.git"
