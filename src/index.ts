@@ -91,12 +91,33 @@ window.tinyMCE.PluginManager.add('h5img', function(editor) {
         }
     }
 
+    const paste = async (e) => {
+        if (typeof e.clipboardData.types === 'undefined' || e.clipboardData.types.length === 0) {
+            return;
+        }
+
+        const type = e.clipboardData.types[0];
+        if (type !== 'Files') {
+            return;
+        }
+
+        const file = e.clipboardData.items[0].getAsFile();
+        if (utils.isAcceptedFile(file)) {
+            const result = await utils.sendFile(file, uploadConfig.uploadFile);
+            return await displayImg(editor, result)
+        }
+
+        e.stopPropagation();
+        e.preventDefault();
+    }
+
     editor.on('init', () => {
         const body = editor.getBody();
         body.addEventListener('dragenter', dragEnter, false);
         body.addEventListener('dragover', dragOver, false);
         body.addEventListener('drop', drop, false);
         body.addEventListener('dragleave', dragLeave, false);
+        body.addEventListener('paste', paste, false);
     })
 
     editor.addButton('h5img', {
