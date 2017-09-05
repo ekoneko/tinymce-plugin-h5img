@@ -1,13 +1,6 @@
 import * as utils from './utils';
 import * as types from './types';
 
-declare global {
-    interface Window {
-        tinyMCE: any;
-        tinymce: any;
-    }
-}
-
 const DEFAULT_ACCEPT = [
     'image/jpeg',
     'image/png',

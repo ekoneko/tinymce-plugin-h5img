@@ -1,3 +1,10 @@
+declare global {
+    interface Window {
+        tinyMCE: any;
+        tinymce: any;
+    }
+}
+
 export interface ISendResult {
     file: File;
     url?: string;
